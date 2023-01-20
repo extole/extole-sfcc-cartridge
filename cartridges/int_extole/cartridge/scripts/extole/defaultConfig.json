@@ -1,0 +1,34 @@
+{
+    "customer": {
+        "first_name": "customer.profile.firstName",
+        "last_name": "customer.profile.lastName",
+        "email": "customer.profile.email",
+        "partner_user_id": "customer.$customerId"
+    },
+    "category": {
+        "title": "category.$categoryTitle",
+        "image_url": "category.$categoryImageURL",
+        "description": "category.pageDescription",
+        "content_url": "category.$categoryURL"
+    },
+    "product": {
+        "title": "product.$productTitle",
+        "image_url": "product.$productImageURL",
+        "description": "product.pageDescription",
+        "url": "product.$productURL",
+        "partner_content_id": "product.ID"
+    },
+    "order": {
+        "partner_conversion_id": "order.orderNo",
+        "cart_value": "order.$cartValue",
+        "coupon_code": "order.$couponList",
+        "first_name": "order.billingAddress.firstName",
+        "last_name": "order.billingAddress.lastName",
+        "email": "order.customerEmail",
+        "partner_user_id": "order.$orderCustomerId"
+    },
+    "jwt": {
+        "email": "customer.profile.email",
+        "partner_user_id": "customer.profile.customerNo"
+    }
+ }

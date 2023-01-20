@@ -1,0 +1,11 @@
+<!--- TEMPLATENAME: core.isml --->
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+
+<isset name="ExtoleSettings" value="${require('*/cartridge/scripts/extole/libExtole')}" scope="page" />
+<isset name="variantAttr" value="${require('*/cartridge/scripts/extole/productHelper').getSgSelectedVatiantAttributes(null, pdict.CurrentHttpParameterMap)}" scope="page" />
+
+<isif condition="${ExtoleSettings.isExtoleEnabled() && variantAttr}">
+    <script>
+        window.extole.selectedProduct = <isprint value="${JSON.stringify(variantAttr)}" encoding="htmlsinglequote"/>;
+    </script>
+</isif>

@@ -1,0 +1,43 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<isdecorate template="account/pt_account"/>
+<isinclude template="util/modules"/>
+
+    <isslot id="account-banner" description="Banner for My Account pages" context="global" />
+
+    <h1>
+        ${Resource.msg('account.header','account',null)} |
+        ${Resource.msgf('global.user.name', 'locale', null, pdict.CurrentCustomer.profile.firstName, pdict.CurrentCustomer.profile.lastName)}
+        <span class="account-logout">(<a title="${Resource.msg('global.logout','locale',null)}" href="${URLUtils.https('Login-Logout')}">${Resource.msg('global.logout','locale',null)}</a>)</span>
+        <isif condition="${pdict.downloadAvailable}">
+            <a class="profile-data-download button" href="${URLUtils.url('Account-DataDownload')}">  ${Resource.msg('account.landing.databutton','account',null)}</a>
+        </isif>
+    </h1>
+    <isif condition="${pdict.CurrentHttpParameterMap.isParameterSubmitted('registration') || pdict.CurrentHttpParameterMap.isParameterSubmitted('Registration')}">
+        <iscomment>
+            Extole zone tag integration - 'registration'
+        </iscomment>
+        <isinclude url="${URLUtils.url('Extole-Zonetag',
+            'name', 'registration',
+            'predefined_data', 'customer, order'
+        )}" />
+    </isif>
+    <iscomment>
+        Extole zone tag integration - 'my_account'
+    </iscomment>
+    <isinclude url="${URLUtils.url('Extole-Zonetag',
+        'name', 'my_account',
+        'elementId', 'extole_zone_my_account',
+        'predefined_data', 'customer, order'
+    )}" />
+    <iscomment>
+        Extole zone tag integration - 'embedded_stats'
+    </iscomment>
+    <isinclude url="${URLUtils.url('Extole-Zonetag',
+        'name', 'embedded_stats',
+        'elementId', 'extole_zone_embedded_stats',
+        'predefined_data', 'jwt'
+    )}" />
+
+    <iscontentasset aid="account-landing"/>
+
+</isdecorate>

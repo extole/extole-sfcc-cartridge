@@ -1,0 +1,30 @@
+{
+    "_v":"18.3",
+    "clients": [
+        {
+            "allowed_origins": [
+                "http://my.extole.com",
+                "https://my.extole.com",
+                "http://api.extole.com",
+                "https://api.extole.com"
+            ],
+            "client_id":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "resources": [
+                {
+                    "resource_id": "/sites/{site_id}/coupons/**",
+                    "methods":["get","post","patch"],
+                    "read_attributes": "(**)",
+                    "write_attributes": "(**)",
+                    "cache_time": 900
+                },
+                {
+                    "resource_id": "/sites/{site_id}/coupon_search",
+                    "methods":["post"],
+                    "read_attributes": "(**)",
+                    "write_attributes": "(**)",
+                    "cache_time": 900
+                }
+            ]
+        }
+    ]
+}

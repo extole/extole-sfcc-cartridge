@@ -1,0 +1,18 @@
+<!--- TEMPLATENAME: zonetag.isml --->
+<isset name="ExtoleSettings" value="${require('*/cartridge/scripts/extole/libExtole')}" scope="page" />
+<isset name="ExtoleZoneTagModel" value="${require('*/cartridge/scripts/extole/extoleZoneTagModel')}" scope="page" />
+<isset name="extoleZoneObj" value="${ExtoleZoneTagModel.get(pdict)}" scope="page" />
+
+<isif condition="${ExtoleSettings.isExtoleEnabled() && ExtoleSettings.isApprovalAPIEnabled()}">
+    <isif condition="${pdict.name.toString() != 'registration' && pdict.name.toString() != 'conversion' && pdict.name.toString() != 'homepage_module'}">
+        <span id="${pdict.element_id}"></span>
+    </isif>
+    
+    <script>
+        /* Start Extole */
+          (function(c,e,k,l,a){c[e]=c[e]||{};for(c[e].q=c[e].q||[];a<l.length;)k(l[a++],c[e])})(window,"extole",function(c,e){e[c]=e[c]||function(){e.q.push([c,arguments])}},["createZone"],0);
+          /* End Extole */
+
+         extole.createZone(<isprint value="${JSON.stringify(extoleZoneObj)}" encoding="off"/>);
+    </script>
+</isif>

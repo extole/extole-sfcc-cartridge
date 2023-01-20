@@ -1,0 +1,8 @@
+<!--- TEMPLATENAME: core.isml --->
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+
+<isset name="ExtoleSettings" value="${require('*/cartridge/scripts/extole/libExtole')}" scope="page" />
+
+<isif condition="${ExtoleSettings.isExtoleEnabled()}">
+    <script async="async" src="${ExtoleSettings.getScriptUrl()}"></script>
+</isif>

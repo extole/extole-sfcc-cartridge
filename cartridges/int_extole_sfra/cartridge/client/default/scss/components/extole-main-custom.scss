@@ -1,0 +1,19 @@
+@import "base/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+@import "bootstrap/scss/variables";
+
+div.extole-overlay-cta-wrapper .extole-content > div {
+    padding: 0;
+}
+
+div.extole-js-widget-view .extole-widget-wrapper .extole-close-button {
+    @include media-breakpoint-down(sm) {
+        color: $grey3;
+    }
+}
+
+body.extole-css-popup-open {
+    @include media-breakpoint-down(sm) {
+        position: fixed;
+    }
+}
